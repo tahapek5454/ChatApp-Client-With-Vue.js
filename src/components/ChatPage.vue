@@ -57,7 +57,7 @@ export default defineComponent({
     data() {
         return {
 
-            hubConnection: new HubConnectionBuilder().withUrl("https://localhost:7279/chatHub").build(),
+            hubConnection: new HubConnectionBuilder().withUrl("https://localhost:7279/chatHub").withAutomaticReconnect().build(),
 
             users: null,
 
@@ -70,6 +70,9 @@ export default defineComponent({
     methods: {
 
         sendMessage() {
+            if(!this.activeTargetUser || !this.sendMessageContent)
+                return
+
             this.hubConnection.invoke('SendMessage', this.activeTargetUser, this.sendMessageContent).then(e => {
                 console.log(e);
                 this.allMessages.push({

@@ -57,7 +57,7 @@ export default defineComponent({
     data() {
         return {
 
-            hubConnection: new HubConnectionBuilder().withUrl("https://localhost:7279/chatHub").withAutomaticReconnect().build(),
+            hubConnection: new HubConnectionBuilder().withUrl("http://localhost:7279/chatHub").withAutomaticReconnect().build(),
 
             users: null,
 

@@ -1,7 +1,6 @@
 <template>
     <div id="root" class="d-flex">
         <div class="sidebar">
-            <h3>Self Chat</h3>
             <div class="list-group list-group-flush border-bottom scrollarea">
                 <span  @click="setActive(user.userName)" v-for="user in users" :key="user.userName" style="cursor: pointer;"  :class="`list-group-item list-group-item-action ${activeTargetUser == user.userName ? 'active' : ''} border-0 py-3`" aria-current="true">
                     <div class="d-flex w-100 align-items-center justify-content-between">
@@ -130,6 +129,20 @@ export default defineComponent({
 #root{
     height: calc(100vh - 60px);
 }
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: #330867;
+    margin: 0;
+    cursor: pointer;
+}
+.navbar{
+    background: linear-gradient(to right, #30FCD0 0%, #330867 100%);
+}
+.nav-link{
+    color: white !important;
+    cursor: pointer;
+}
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -140,13 +153,6 @@ export default defineComponent({
     gap: 20px;
     padding: .5rem;
     border-right: 1px solid blue;
-}
-.searchInput{
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    width: 100%;
-    font-weight: 400;
-    line-height: 1.5;
 }
 input[type="text"], input[type="password"], input[type="search"], textarea {
     border: none;

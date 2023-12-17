@@ -1,20 +1,7 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: rgb(177, 221, 247) !important;">
-        <div class="container">
-            <a class="navbar-brand" href="#">Chatt App</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <RouterLink to="/" active-class="active">
-                        <li class="nav-item">
-                            <span class="nav-link">Sohbete Başla</span>
-                        </li>
-                    </RouterLink>
-                </ul>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <nav class="navbar d-flex align-items-center justify-content-between px-5 navbar-expand-lg bg-body-tertiary">
+            <h3 class="logo">Self Chat</h3>
+                <ul class="navbar-nav mb-lg-0">
                     <RouterLink to="/login" active-class="active">
                         <li class="nav-item">
                             <span class="nav-link">Giriş Yap</span>
@@ -35,8 +22,6 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-            </div>
-        </div>
     </nav>
 </template>
 

@@ -1,5 +1,9 @@
 <template>
     <div class="container p-4">
+        <div class="alert alert-warning" role="alert">
+             {{ info }}
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-4">
                 <div class="mb-3">
@@ -25,6 +29,10 @@
             </div>
 
         </div>
+
+        <div v-if="danger" class="alert alert-danger" role="alert">
+             {{ danger }}
+        </div>
     </div>
 </template>
 
@@ -40,7 +48,9 @@ export default defineComponent({
                 email: null ,
                 userName: null ,
                 password: null ,
-            }
+            },
+            info : "Resmi bir mail girmenize gerek yoktur. Uygulama Kullanıcı Adını referans alarak çalışır.",
+            danger : null
         }
     },
     methods:{
@@ -50,6 +60,11 @@ export default defineComponent({
 
                 this.$appAxios.post("Users", this.user).then(a => {
                     console.log(a);
+                    if(a.data == -1){
+                        console.log("sadsad");
+                        this.danger = "Kullanıcı adı zaten kayıtlı lütfen başka bir kullanıcı adı giriniz."
+                        return 
+                    }
                     this.$router.push('/');
                 });
 

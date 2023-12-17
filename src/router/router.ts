@@ -1,6 +1,7 @@
 import ChatPage from '@/components/ChatPage.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import RegisterPage from '@/components/RegisterPage.vue'
+import store from '@/utils/store'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 
@@ -27,6 +28,15 @@ const routes = [
 const router = createRouter({
     routes : routes,
     history : createWebHashHistory()
+});
+
+
+router.beforeEach(async (to) => {
+        if (
+                !store.getters["getUser"].userName && to.name == "ChatPage"
+        ) {
+          return { name: 'LoginPage' }
+        }
 });
 
 

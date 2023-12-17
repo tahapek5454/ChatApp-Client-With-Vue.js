@@ -5,9 +5,9 @@ import store from './utils/store'
 import appAxios from './utils/appAxios'
 
 const app = createApp(App)
-
-app.use(router)
 app.use(store)
+app.use(router)
+
 
 app.config.globalProperties.$appAxios = appAxios;
 
